@@ -26,9 +26,12 @@ export class UserService {
     return this.http.get<Profile[]>(AppConstants.ADMIN_USERS);
   }
 
+  public getFirmUsers(search: string): Observable<Profile[]> {
+    return this.http.get<Profile[]>(AppConstants.FIRM_USERS, { params: new HttpParams().set('search', search) });
+  }
+
   public blockUser(profileId: string, isBlock: boolean): Observable<Boolean> {
-    return this.http.get<Boolean>(AppConstants.BLOCK_USER+"/"+profileId, { params: new HttpParams().set('isBlocked', isBlock) }
-    );
+    return this.http.get<Boolean>(AppConstants.BLOCK_USER+"/"+profileId, { params: new HttpParams().set('isBlocked', isBlock) });
   }
 
   public deleteUser(profileId: string): Observable<Profile> {
