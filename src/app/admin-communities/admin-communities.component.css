@@ -1,0 +1,30 @@
+.adminCommunities {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    
+}
+
+.adminCommunities .communityButton {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    padding: 20px;
+    background-color: #ECEFF1;
+}
+
+.adminCommunities .createCommunity {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.adminCommunities .createCommunity .photoBrowser {
+    display: flex;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 20px;
+}
+
+
+

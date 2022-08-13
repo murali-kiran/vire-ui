@@ -1,0 +1,79 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card bg-dark my-5">
+        <div class="card-body">
+          <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+          <ul class="text-center list-inline py-3">
+            <li class="list-inline-item">
+              <a routerLink="/users" class="btn btn-info">List Users</a>
+                </li>
+            <li class="list-inline-item">
+              <a routerLink="/adduser" class="btn btn-info">Add User</a>
+                </li>
+          </ul>
+        </div>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    
+    <h1>Admin Portal</h1>
+    <span class="menu-spacer"></span>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">Vire application admin console</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+
+      <a mat-list-item [routerLink]="'/users'"> Users </a>
+      <a mat-list-item [routerLink]="'/adduser'"> Create User </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="height: 88vh;">
+
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+-->
+
+<div >
+  <div class="header">
+    VIRE
+  </div>
+  <div class="sidemenu">
+    <div class="menu">
+      <ul >
+        <li><a  (click)="triggerMenuItem('home')"> Home </a></li>
+        <li><a  (click)="triggerMenuItem('users')"> Users</a></li>
+        <li><a  (click)="triggerMenuItem('firmAccounts')"> Firm Accounts</a></li>
+        <li><a  (click)="triggerMenuItem('communities')"> Communities</a></li>
+        <li><a  (click)="triggerMenuItem('channels')"> Channels</a></li>
+        <li><a  (click)="triggerMenuItem('feeds')"> Feed</a></li>
+        <li><a  (click)="triggerMenuItem('social')"> Social</a></li>
+        <li><a  (click)="triggerMenuItem('experience')"> Experience</a></li>
+        <li><a  (click)="triggerMenuItem('reports')"> Reports</a></li>
+        <li><a  (click)="triggerMenuItem('blockList')"> Block List</a></li>
+        <li><a  (click)="triggerMenuItem('masterData')"> Master Data</a></li>
+        <li><a  (click)="triggerMenuItem('appRestriction')"> App Restriction</a></li>
+        <li><a  (click)="triggerMenuItem('adminCommunities')"> Admin Communities</a></li>
+        <li><a  (click)="triggerMenuItem('adminMessage')"> Admin Message</a></li>
+      </ul>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>    
+  </div>
+  <div class="footer">Vire &#169; 2022</div>
+</div>

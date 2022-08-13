@@ -1,0 +1,131 @@
+<div class="home">
+    <div class="categories">
+        <!-- <div *ngFor='let key of  [1,2,3,4,5,6,7,8,9]' class="categoryItem">
+                <div class="categoryContent">2345345</div>
+                <div class="categoryTitle"><b>Total Users</b></div>
+        </div> -->
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.totalUsers}}</div>
+            <div class="categoryTitle"><b>Total Users</b></div>
+        </div>
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.newUsersToday}}</div>
+            <div class="categoryTitle"><b>New Users today</b></div>
+        </div>
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.totalFirmAccounts}}</div>
+            <div class="categoryTitle"><b>Total firm accounts</b></div>
+        </div>
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.newFirmAccountsToday}}</div>
+            <div class="categoryTitle"><b>New firm accounts today</b></div>
+        </div>
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.totalCommunities}}</div>
+            <div class="categoryTitle"><b>Total Communities</b></div>
+        </div>
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.newCommunitiesToday}}</div>
+            <div class="categoryTitle"><b>New Communities Today</b></div>
+        </div>
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.totalChannels}}</div>
+            <div class="categoryTitle"><b>Total Channels</b></div>
+        </div>
+
+        <div class="categoryItem">
+            <div class="categoryContent">{{homeReponse.newChannelsToday}}</div>
+            <div class="categoryTitle"><b>New channels today</b></div>
+        </div>
+
+    </div>
+
+    <div class="posts">
+        <!-- <div *ngFor='let key of  [1,2,3,4,5,6,7,8,9]' class="postItem">
+            <div class="postContent">
+                <div class="post">
+                    <div>Name</div>
+                    <div>14578</div>
+                </div>
+                <div class="post">
+                    <div>Value</div>
+                    <div>4562</div>
+                </div>
+            </div>
+            <div class="title">
+                Post Name
+            </div>
+        </div> -->
+
+        <div class="postItem">
+            <div class="postContent">
+                <div class="post">
+                    <div>Today</div>
+                    <div>{{homeReponse.feedPostsToday}}</div>
+                </div>
+                <div class="post">
+                    <div>All</div>
+                    <div>{{homeReponse.allFeedPosts}}</div>
+                </div>
+            </div>
+            <div class="title">
+                Feed posts
+            </div>
+        </div>
+
+        <div class="postItem">
+            <div class="postContent">
+                <div class="post">
+                    <div>Today</div>
+                    <div>{{homeReponse.allSocialPosts}}</div>
+                </div>
+                <div class="post">
+                    <div>All</div>
+                    <div>{{homeReponse.socialPostsToday}}</div>
+                </div>
+            </div>
+            <div class="title">
+                Social posts
+            </div>
+        </div>
+
+        <div class="postItem">
+            <div class="postContent">
+                <div class="post">
+                    <div>Today</div>
+                    <div>{{homeReponse.experiencePostsToday}}</div>
+                </div>
+                <div class="post">
+                    <div>All</div>
+                    <div>{{homeReponse.allExperiencePosts}}</div>
+                </div>
+            </div>
+            <div class="title">
+                Experience posts
+            </div>
+        </div>
+
+        <div class="postItem">
+            <div class="postContent">
+                <div class="post">
+                    <div>Today</div>
+                    <div>{{homeReponse.reportsPostsToday}}</div>
+                </div>
+                <div class="post">
+                    <div>All</div>
+                    <div>{{homeReponse.allReports}}</div>
+                </div>
+            </div>
+            <div class="title">
+                Reports
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,84 @@
+.users {
+    background-color: #ECEFF1;
+    display: flexbox;
+    flex-direction: row;
+}
+
+.users-header {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+.user-grid {
+   
+    display: grid;
+    /* grid-template-columns: repeat(5,1fr); */
+    grid-template-rows: 1fr;
+    grid-gap: 45px;
+}
+
+.user-grid .user-grid-cell {
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-baseline{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    padding: 5px 15px;
+}
+
+.user-baseline ul {
+    list-style: none;
+    display: flex;
+}
+
+.user-baseline ul li{
+    margin-left: 4px;
+}
+
+.userprofile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+
+.userprofile > div{
+    flex: auto;
+    display: flex;
+    align-items: center;
+}
+
+.userprofile .profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.userprofile .profile .profileCount{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.userButton {
+  background-color: #ECEFF1; /* Green */
+  border: none;
+  color: #000000;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

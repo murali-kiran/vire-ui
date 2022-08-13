@@ -1,0 +1,14 @@
+.adminMessageItem {
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    width: 300px;
+    gap: 5px;
+    padding: 5px 5px;
+}
+
+.adminMessageItem .adminDetails {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

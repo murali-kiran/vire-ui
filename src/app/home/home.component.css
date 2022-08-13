@@ -1,0 +1,75 @@
+.home {
+    display: flexbox;
+    flex-direction: row;
+}
+
+.categories {
+    background-color: #c5cae9;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 45px;
+}
+
+.categories .categoryItem {
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categories .categoryItem  .categoryContent{
+    font-weight: bold;
+    font-size: 4rem;
+    color: #039BE5;
+    padding-right: 5px;
+}
+
+.categories .categoryItem  .categoryTitle{
+    font-weight: bold;
+    font-size: 2rem;
+    color: #039BE5;
+    display: flex;
+    align-items:stretch;
+    
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 25px;
+    margin: 20px;    
+}
+
+.posts .postItem {
+    padding: 10px 10px;    
+    display: flexbox;
+    flex-direction: row;
+
+}
+
+.posts .postItem .postContent {
+    background-color:  rgb(246, 236, 236);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset; 
+    display: grid;  
+    grid-template-rows: 1f 1fr;
+}
+
+.posts .postItem .postContent .post{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    padding: 13px;
+}
+
+.posts .postItem .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #039BE5;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 5px;
+}
+
+
+
