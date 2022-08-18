@@ -1,3 +1,4 @@
+import { CommunityService } from './../service/community-service.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -73,7 +74,7 @@ import { ExperienceItemComponent } from './experience/experience-item/experience
     MatListModule,
     MatButtonModule
   ],
-  providers: [UserService],
+  providers: [UserService,CommunityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,8 +8,9 @@
     </div>
     <div class="user-grid">
         <div *ngFor='let profile of  profiles' class="user-grid-cell">
-            <div class="categoryContent"><input type="radio" name="user" type="radio" value="profile.profileId" (change)="onItemChange(profile)"
-                ></div>
+            <div class="categoryContent">
+                <input type="radio" name="user" type="radio" value="profile.profileId" (change)="onItemChange(profile)">
+            </div>
             <div class="categoryTitle"><b>{{profile.name}}</b></div>
         </div>
     </div>

@@ -17,7 +17,6 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.retriveAllusers();
-    console.log("#### :: "+this.selectedProfile);
   }
 
   retriveAllusers = ()=>{
