@@ -1,4 +1,4 @@
-import { Community } from './../model/models';
+import { Community, Communities } from './../model/models';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,8 +9,10 @@ export class CommunityService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllCommunities(): Observable<Community[]> {
-    return this.http.get<Community[]>(AppConstants.ALL_COMMUNITIES);
+  public getAllCommunities(currentPage: number, pageSize: number): Observable<Communities> {
+    return this.http.get<Communities>(AppConstants.ALL_COMMUNITIES,{ params: new HttpParams()
+      .set('page',currentPage)
+      .set('size',pageSize) });
   }
 
   public blockCommunity(communityId: string, isBlock: boolean): Observable<Boolean> {

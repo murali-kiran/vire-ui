@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   triggerMenuItem = (menuItem: string)=>{
-    //this.mainContent = menuItem;
     this.router.navigate([menuItem]);
   }
+  
 }

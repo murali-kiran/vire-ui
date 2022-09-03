@@ -11,17 +11,21 @@ export class CommunitiesComponent implements OnInit {
 
   communities : Community [];
   selectedCommunity ?: Community;
+  pageCount : number;
+  currentPage: number = 1;
+  pageSize : number = 3;
 
   constructor(private communityService:CommunityService) { }
 
 
   ngOnInit(): void {
-    this.retriveAllCommunties();
+    this.retriveAllCommunties(this.currentPage,this.pageSize);
   }
 
-  retriveAllCommunties = ()=>{
-    this.communityService.getAllCommunities().subscribe(data=>{
-      this.communities=data;
+  retriveAllCommunties = (currentPage: number, pageSize: number)=>{
+    this.communityService.getAllCommunities(currentPage,pageSize).subscribe(data=>{
+      this.pageCount = data.pageCount;
+      this.communities=data.list;
     });
   }
 
@@ -42,10 +46,18 @@ export class CommunitiesComponent implements OnInit {
   onDeleteCommunity = (community : Community)=>{
 
     this.communityService.deleteCommunity(community.communityId).subscribe(data=>{
-      this.retriveAllCommunties();
+      this.currentPage = 1;
+      this.retriveAllCommunties(this.currentPage,this.pageSize);
       this.selectedCommunity = undefined;
     });
 
+  }
+
+  onPageSelection = (pageNumber: number)=>{
+    if(this.currentPage!=pageNumber){
+      this.currentPage = pageNumber;
+      this.retriveAllCommunties(this.currentPage, this.pageSize);
+    }
   }
 
 }

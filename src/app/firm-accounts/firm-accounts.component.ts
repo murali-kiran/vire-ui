@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from './../../model/profile';
+import { Profile } from './../../model/models';
 import { UserService } from './../../service/user-service.service';
 
 @Component({
@@ -11,16 +11,20 @@ export class FirmAccountsComponent implements OnInit {
 
   profiles : Profile [];
   selectedProfile ?: Profile;
+  pageCount : number;
+  currentPage: number = 1;
+  pageSize : number = 3;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.retriveAllusers();
+    this.retriveAllusers(this.currentPage,this.pageSize);
   }
 
-  retriveAllusers = ()=>{
-    this.userService.getFirmUsers('profileType:firm').subscribe(data=>{
-      this.profiles=data;
+  retriveAllusers = (currentPage: number, pageSize: number)=>{
+    this.userService.getFirmUsers('profileType:firm',this.currentPage, this.pageSize).subscribe(data=>{
+      this.pageCount = data.pageCount;
+      this.profiles  = data.list;
     });
   }
 
@@ -41,10 +45,18 @@ export class FirmAccountsComponent implements OnInit {
   onDeleteUser = (profile : Profile)=>{
 
     this.userService.deleteUser(profile.profileId).subscribe(data=>{
-      this.retriveAllusers();
+      this.currentPage = 1;
+      this.retriveAllusers(this.currentPage,this.pageSize);
       this.selectedProfile = undefined;
     });
 
+  }
+
+  onPageSelection = (pageNumber: number)=>{
+    if(this.currentPage!=pageNumber){
+      this.currentPage = pageNumber;
+      this.retriveAllusers(this.currentPage, this.pageSize);
+    }
   }
 
 }

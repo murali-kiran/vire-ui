@@ -1,4 +1,4 @@
-import { Profile } from './../model/profile';
+import { Profile,Users } from './../model/models';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { User } from '../model/user';
@@ -22,12 +22,23 @@ export class UserService {
     return this.http.post<User>(this.usersUrl, user);
   }
 
-  public getAllUsers(): Observable<Profile[]> {
-    return this.http.get<Profile[]>(AppConstants.ADMIN_USERS);
+  // public getAllUsers(): Observable<Profile[]> {
+  //   return this.http.get<Profile[]>(AppConstants.ADMIN_USERS);
+  // }
+
+  public getAllUsers(currentPage: number, pageSize: number): Observable<Users> {
+    return this.http.get<Users>(AppConstants.ADMIN_USERS,{
+       params: new HttpParams()
+        .set('page',currentPage)
+        .set('size',pageSize) }
+    );
   }
 
-  public getFirmUsers(search: string): Observable<Profile[]> {
-    return this.http.get<Profile[]>(AppConstants.FIRM_USERS, { params: new HttpParams().set('search', search) });
+  public getFirmUsers(search: string,currentPage: number, pageSize: number): Observable<Users> {
+    return this.http.get<Users>(AppConstants.FIRM_USERS, { params: new HttpParams()
+    .set('search', search)
+    .set('page',currentPage)
+    .set('size',pageSize) });
   }
 
   public blockUser(profileId: string, isBlock: boolean): Observable<Boolean> {

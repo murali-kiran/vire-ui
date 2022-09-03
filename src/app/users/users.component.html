@@ -16,7 +16,7 @@
     </div>
     <div class="user-baseline">
         <ul>
-            <li *ngFor='let key of  [1,2,3,4,5,6,7,8,9]'><a>{{key}}</a></li>
+            <li *ngFor='let e of [].constructor(pageCount);let i = index' (click)="onPageSelection(i+1)" ><a>{{i+1}}</a></li>            
         </ul>
     </div>
 

@@ -1,3 +1,26 @@
+export interface Home {
+    totalUsers?: number;
+    totalFirmAccounts?: number;
+    totalCommunities?: number;
+    totalChannels?: number;
+    newUsersToday?: number;
+    newFirmAccountsToday?: number;
+    newCommunitiesToday?: number;
+    newChannelsToday?: number;
+    allFeedPosts?: number;
+    feedPostsToday?: number;
+    allSocialPosts?: number;
+    allExperiencePosts?: number;
+    allCommunityPosts?: number;
+    allChannelPosts?: number;
+    allReports?: number;
+    socialPostsToday?: number;
+    experiencePostsToday?: number;
+    communityPostsToday?: number;
+    channelPostsToday?: number;
+    reportsPostsToday?: number;
+}
+
 export interface Community {
     communityId: string,
     name?: string,
@@ -10,4 +33,25 @@ export interface Community {
     createdTime?: string
     updatedTime?: string
     isBlocked: boolean;
+}
+
+export interface Communities {
+    pageCount: number;
+    list : Community [];
+}
+
+export class Profile {
+    profileId :  string;
+    name :  string;
+    fileId :  string;
+    profileType :  string;
+    location :  string;
+    thumbsUpCount :  number;
+    thumbsDownCount :  number;
+    isBlocked: boolean;
+}
+
+export interface Users {
+    pageCount: number;
+    list : Profile [];
 }

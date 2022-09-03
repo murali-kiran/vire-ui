@@ -1,4 +1,4 @@
-import { Home } from './../model/home';
+import { Home } from './../model/models';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
