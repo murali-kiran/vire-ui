@@ -21,6 +21,9 @@ export interface Home {
     reportsPostsToday?: number;
 }
 
+/*
+COMMUNITY
+*/
 export interface Community {
     communityId: string,
     name?: string,
@@ -40,6 +43,8 @@ export interface Communities {
     list : Community [];
 }
 
+/* PROFILES*/
+
 export class Profile {
     profileId :  string;
     name :  string;
@@ -54,4 +59,16 @@ export class Profile {
 export interface Users {
     pageCount: number;
     list : Profile [];
+}
+
+/** CHANNELS */
+export interface Channel {
+    channelId: string;
+    name: string;
+    description: string;
+}
+
+export interface Channels {
+    pageCount: number;
+    list : Channel [];
 }

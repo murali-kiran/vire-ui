@@ -10,4 +10,8 @@ export const COMMUNITY_BASE_URL: string = BASE_URL+"/api/community"
 export const ALL_COMMUNITIES: string = COMMUNITY_BASE_URL+"/allPageWise";
 export const BLOCK_COMMUNITY: string = COMMUNITY_BASE_URL+"/blockCommunity";
 
+export const CHANNEL_BASE_URL: string = BASE_URL+"/api/channel"
+export const ALL_CHANNELS: string = CHANNEL_BASE_URL+"/allPageWise";
+export const BLOCK_CHANNEL: string = CHANNEL_BASE_URL+"/blockChannel";
+
 
