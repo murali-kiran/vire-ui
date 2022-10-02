@@ -90,8 +90,8 @@ export interface Feeds {
 }
 
 export interface Feed {
-    feedId : number;
-    profileId : number;
+    feedId : string;
+    profileId : string;
     minimalProfileResponse : Profile;
     description : string;
     commentsCount : number;

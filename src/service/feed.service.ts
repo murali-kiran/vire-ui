@@ -11,8 +11,8 @@ export class FeedService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllFeeds(): Observable<Feeds> {
-    return this.http.get<Feeds>(AppConstants.ALL_FEEDS);
+  public getAllFeeds(): Observable<Feed []> {
+    return this.http.get<Feed[]>(AppConstants.ALL_FEEDS);
   }
 
   public deleteFeed(feedId: string): Observable<Feed> {

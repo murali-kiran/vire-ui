@@ -23,8 +23,20 @@ export class FeedsComponent implements OnInit {
 
   retriveAllFeeds = ()=>{
     this.feedService.getAllFeeds().subscribe(data=>{
-      this.pageCount = data.pageCount;
-      this.feeds=data.list;
+      //this.pageCount = data.pageCount;
+      this.feeds=data;
+    });
+  }
+
+  onDeleteFeed = (feed : Feed,idx : number)=>{
+    this.feedService.deleteFeed(feed.feedId).subscribe(data=>{
+      //this.currentPage = 1;
+      //this.retriveAllExperiences(this.currentPage, this.pageSize);
+      //this.selectedExperience = undefined;
+      if (idx !== -1) {
+        this.feeds.splice(idx, 1);
+      } 
+       
     });
   }
 
