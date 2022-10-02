@@ -22,7 +22,7 @@ export class ChannelService {
   // }
 
   public deleteChannel(channelId: string): Observable<Channel> {
-    return this.http.delete<Channel>(AppConstants.CHANNEL_BASE_URL+"/"+channelId);
+    return this.http.delete<Channel>(AppConstants.DELETE_CHANNEL+"/"+channelId);
   }
 
 }

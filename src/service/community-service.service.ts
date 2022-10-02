@@ -20,7 +20,7 @@ export class CommunityService {
   }
 
   public deleteCommunity(communityId: string): Observable<Community> {
-    return this.http.delete<Community>(AppConstants.COMMUNITY_BASE_URL+"/"+communityId);
+    return this.http.delete<Community>(AppConstants.DELETE_COMMUNITY+"/"+communityId);
   }
 
 }

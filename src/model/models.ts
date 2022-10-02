@@ -21,6 +21,16 @@ export interface Home {
     reportsPostsToday?: number;
 }
 
+/** Master Response */
+export interface MasterResponse {
+    masterId : string;    
+    masterType : string;
+    masterValue : string;
+    createdTime : string;
+    updatedTime : string;
+}
+
+
 /*
 COMMUNITY
 */
@@ -72,3 +82,99 @@ export interface Channels {
     pageCount: number;
     list : Channel [];
 }
+
+/** FEEDS */
+export interface Feeds {
+    pageCount: number;
+    list : Feed [];
+}
+
+export interface Feed {
+    feedId : number;
+    profileId : number;
+    minimalProfileResponse : Profile;
+    description : string;
+    commentsCount : number;
+    likesCount : number;
+    reportsCount : number;
+    createdTime : string;
+    updatedTime : string;
+    feedComments : FeedComment [];
+}
+
+export interface FeedComment {
+    feedCommentId : number;
+    commentorProfileId: number;
+    comment : string;
+    createdTime : string;
+    updatedTime : string;
+}
+
+/** SOCIAL */
+
+export interface Socials {
+    pageCount: number;
+    list : Social [];
+}
+
+export interface Social {
+
+    socialId : string;
+    profileId : string;
+    minimalProfileResponse : Profile;
+    categoryId : string;
+    type : string;
+    subject : string;
+    description : string;
+    contact : string;
+    alternateContact : string;
+    fileId  : string;
+    createdTime : string;
+    updatedTime : string;
+    /*List<SocialSendToResponse> sendTo;
+    List<CommentResponse> comments;
+    List<LikesResponse> likes;
+    List<SocialFileResponse> fileResponses;
+    List<SocialCallRequestResponse> socialCallRequestResponses;*/
+    categoryName : string;
+    categoryColorCode : string;
+    createdTimeStr : string;
+    location : string;
+    callRequestStatusOfLoginUser : string;
+    likesCount : number;
+    commentsCount : number;
+    starsCount : number;
+
+}
+
+
+/** EXPERIENCES */
+
+export interface Experiences {
+    pageCount: number;
+    list : Experience [];
+}
+
+export interface Experience {
+
+ experienceId : string;
+ minimalProfileResponse : Profile;
+ categoryResponse: MasterResponse;
+ categoryId : string;
+ profileId : string;
+ title : string;
+ description : string;
+ location : string;
+ //List<ExperienceFileResponse> experienceFileList;
+ //List<ExperienceCommentResponse> commentResponseList;
+ //List<ExperienceLikesResponse> likesResponseList;
+ createdTimeStr : string;
+ commentsCount : number;
+ likesCount : number;
+ loginUserLiked : boolean;
+ viewsCount : number;
+ createdTime : string;
+ updatedTime : string;
+}
+
+

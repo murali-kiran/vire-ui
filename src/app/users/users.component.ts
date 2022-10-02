@@ -13,7 +13,7 @@ export class UsersComponent implements OnInit {
   selectedProfile ?: Profile;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 20;
 
   constructor(private userService: UserService) { 
   }

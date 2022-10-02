@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Experience } from './../../../model/models';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-experience-item',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceItemComponent implements OnInit {
 
+  @Input('experienceObj') public experience : Experience;
+  @Output("deleteExperience") deleteExperienceFun: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onDeleteExperience(): void {
+    this.deleteExperienceFun.emit();
+  }
+
+  
 }

@@ -1,4 +1,6 @@
+import { Experience } from './../../model/models';
 import { Component, OnInit } from '@angular/core';
+import { ExperienceService } from 'src/service/experience.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,9 +9,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  experiences : Experience [];
+  selectedExperience ?: Experience;
+  pageCount : number;
+  currentPage: number = 1;
+  pageSize : number = 3;
+
+  constructor(private experienceService : ExperienceService) { }
 
   ngOnInit(): void {
+    this.retriveAllExperiences(this.currentPage, this.pageSize);
+  }
+
+  retriveAllExperiences = (currentPage: number, pageSize: number)=>{
+    this.experienceService.getAllExperiences(currentPage,pageSize).subscribe(data=>{
+      this.pageCount = data.pageCount;
+      this.experiences=data.list;
+    });
+  }
+
+  onDeleteExperience = (experience : Experience)=>{
+    this.experienceService.deleteExperience(experience.experienceId).subscribe(data=>{
+      this.currentPage = 1;
+      this.retriveAllExperiences(this.currentPage, this.pageSize);
+      this.selectedExperience = undefined;
+    });
+  }
+
+  onPageSelection = (pageNumber: number)=>{
+    if(this.currentPage!=pageNumber){
+      this.currentPage = pageNumber;
+      this.retriveAllExperiences(this.currentPage, this.pageSize);
+    }
   }
 
 }
