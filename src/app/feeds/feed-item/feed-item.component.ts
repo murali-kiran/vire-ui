@@ -1,5 +1,6 @@
 import { Feed } from './../../../model/models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { FeedService } from 'src/service/feed.service';
 
 @Component({
   selector: 'app-feed-item',
@@ -11,7 +12,7 @@ export class FeedItemComponent implements OnInit {
   @Input('feedObj') public feed : Feed;
   @Output("deleteFeed") deleteFeedFun: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(public feedService : FeedService) { }
 
   ngOnInit(): void {
   }

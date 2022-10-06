@@ -13,7 +13,7 @@ export class ExperienceComponent implements OnInit {
   selectedExperience ?: Experience;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private experienceService : ExperienceService) { }
 

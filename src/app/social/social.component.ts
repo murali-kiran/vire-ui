@@ -13,7 +13,7 @@ export class SocialComponent implements OnInit {
   selectedSocial ?: Social;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private socialService : SocialService) { }
 

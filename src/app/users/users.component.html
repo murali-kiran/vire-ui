@@ -27,8 +27,17 @@
         <div class="profileCount">
             <div><b>{{selectedProfile.name}}</b></div>
             <!-- <div>20</div> -->
-            <div>ThumbsUp   : {{selectedProfile.thumbsUpCount}}</div>
-            <div>ThumbsDown : {{selectedProfile.thumbsDownCount}}</div>
+            <div>
+                <span>
+                    <img width="20px" height="20px" src="assets/img/like.png" alt=""> {{selectedProfile.thumbsUpCount}}
+                 </span>
+            </div>
+            <div></div>
+            <div>
+                <span>
+                    <img width="20px" height="20px" src="assets/img/dislike.png" alt=""> {{selectedProfile.thumbsDownCount}}
+                 </span>
+            </div>
         </div>
     </div>
     <div *ngIf="!selectedProfile.isBlocked"><button class="userButton" (click)="onBlockUser(selectedProfile,true)">Block</button></div>

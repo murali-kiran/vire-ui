@@ -13,7 +13,7 @@ export class CommunitiesComponent implements OnInit {
   selectedCommunity ?: Community;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private communityService:CommunityService) { }
 

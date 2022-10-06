@@ -5,7 +5,7 @@
         </div>
         <div>
             <div><b>{{feed.minimalProfileResponse.name}} posted </b></div>
-            <div>20</div>
+            <div>{{feedService.getDateFFMMMYYYY(feed.updatedTime)}}</div>
         </div>
         <div>
             <button (click)="onDeleteFeed()">Delete Post</button>
@@ -18,11 +18,11 @@
     </div>
     <div class="postCounts">
         <span>
-           <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{feed.likesCount}}
+           <img width="35px" height="20px" src="assets/img/claps.png" alt=""> {{feed.likesCount}}
         </span>
         &nbsp;&nbsp;
         <span>
-            <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{feed.commentsCount}}
+            <img width="20px" height="20px" src="assets/img/comment.png" alt=""> {{feed.commentsCount}}
         </span>
     </div>
 </div>

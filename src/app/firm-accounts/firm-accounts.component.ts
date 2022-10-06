@@ -13,7 +13,7 @@ export class FirmAccountsComponent implements OnInit {
   selectedProfile ?: Profile;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private userService: UserService) { }
 

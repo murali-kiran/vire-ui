@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { Injectable } from '@angular/core';
 import { Socials, Social } from './../model/models';
 import { Observable } from 'rxjs';
@@ -7,9 +8,11 @@ import * as AppConstants from './../constants/app.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class SocialService {
+export class SocialService extends CommonService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super()
+   }
 
   public getAllSocial(currentPage: number, pageSize: number): Observable<Socials> {
     return this.http.get<Socials>(AppConstants.ALL_SOCIALS,{ params: new HttpParams()

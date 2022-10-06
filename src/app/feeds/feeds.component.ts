@@ -13,7 +13,7 @@ export class FeedsComponent implements OnInit {
   selectedChannel ?: Feed;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private feedService : FeedService) { }
 

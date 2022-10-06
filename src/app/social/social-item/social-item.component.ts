@@ -1,5 +1,6 @@
 import { Social } from './../../../model/models';
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { SocialService } from 'src/service/social.service';
 
 @Component({
   selector: 'app-social-item',
@@ -11,7 +12,7 @@ export class SocialItemComponent implements OnInit {
   @Input('socialObj') public social : Social;
   @Output("deleteSocial") deleteSocialFun: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(public socialService : SocialService) { }
 
   ngOnInit(): void {
   }

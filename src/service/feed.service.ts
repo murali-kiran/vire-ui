@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { Feeds,Feed } from './../model/models';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -7,9 +8,11 @@ import * as AppConstants from './../constants/app.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class FeedService {
+export class FeedService extends CommonService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    super();
+  }
 
   public getAllFeeds(): Observable<Feed []> {
     return this.http.get<Feed[]>(AppConstants.ALL_FEEDS);

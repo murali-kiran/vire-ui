@@ -1,3 +1,4 @@
+import { ExperienceService } from 'src/service/experience.service';
 import { Experience } from './../../../model/models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class ExperienceItemComponent implements OnInit {
   @Input('experienceObj') public experience : Experience;
   @Output("deleteExperience") deleteExperienceFun: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(public experienceService:ExperienceService) { }
 
   ngOnInit(): void {
   }

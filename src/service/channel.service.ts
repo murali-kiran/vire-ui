@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { Observable } from 'rxjs';
 import { Channels,Channel } from './../model/models';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -7,9 +8,11 @@ import * as AppConstants from './../constants/app.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class ChannelService {
+export class ChannelService extends CommonService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    super();
+  }
 
   public getAllChannels(currentPage: number, pageSize: number): Observable<Channels> {
     return this.http.get<Channels>(AppConstants.ALL_CHANNELS,{ params: new HttpParams()

@@ -5,7 +5,7 @@
         </div>
         <div>
             <div><b>{{social.minimalProfileResponse.name}} and {{social.categoryName}}</b></div>
-            <div>20</div>
+            <div>{{socialService.getDateFFMMMYYYY(social.updatedTime)}}</div>
         </div>
         <div>
             <button (click)="onDeleteSocial()" >Delete Post</button>
@@ -16,7 +16,7 @@
     <div class="postDescription">
         {{social.description}}
     </div>
-    <div class="postCounts">
+    <!-- <div class="postCounts">
         <span>
            <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{social.likesCount}}
         </span>
@@ -28,5 +28,5 @@
         <span>
             <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{social.likesCount}}
         </span>
-    </div>
+    </div> -->
 </div>

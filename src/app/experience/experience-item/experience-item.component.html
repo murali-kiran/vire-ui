@@ -5,7 +5,7 @@
         </div>
         <div>
             <div><b>{{experience.minimalProfileResponse.name}} posted in {{experience.categoryResponse.masterValue}}</b></div>
-            <div>20</div>
+            <div>{{experienceService.getDateFFMMMYYYY(experience.updatedTime)}}</div>
         </div>
         <div>
             <button (click)="onDeleteExperience()">Delete Post</button>
@@ -18,15 +18,15 @@
     </div>
     <div class="postCounts">
         <span>
-           <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{experience.viewsCount}}
+           <img width="20px" height="20px" src="assets/img/view.png" alt=""> {{experience.viewsCount}}
         </span>
         &nbsp;&nbsp;
         <span>
-            <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{experience.likesCount}}
+            <img width="20px" height="20px" src="assets/img/star.png" alt=""> {{experience.likesCount}}
         </span>
         &nbsp;&nbsp;
         <span>
-            <img width="15px" height="15px" src="assets/img/user.png" alt=""> {{experience.commentsCount}}
+            <img width="20px" height="20px" src="assets/img/comment.png" alt=""> {{experience.commentsCount}}
         </span>
     </div>
 </div>

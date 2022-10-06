@@ -1,3 +1,4 @@
+import { CommonService } from './common.service';
 import { Experiences,Experience } from './../model/models';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
@@ -7,9 +8,11 @@ import * as AppConstants from './../constants/app.constants';
 @Injectable({
   providedIn: 'root'
 })
-export class ExperienceService {
+export class ExperienceService extends CommonService{
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+   }
 
   public getAllExperiences(currentPage: number, pageSize: number): Observable<Experiences> {
     return this.http.get<Experiences>(AppConstants.ALL_EXPERIENCES,{ params: new HttpParams()

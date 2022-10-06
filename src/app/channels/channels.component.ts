@@ -13,7 +13,7 @@ export class ChannelsComponent implements OnInit {
   selectedChannel ?: Channel;
   pageCount : number;
   currentPage: number = 1;
-  pageSize : number = 3;
+  pageSize : number = 10;
 
   constructor(private channelService:ChannelService) { }
 
