@@ -5,7 +5,7 @@ import { ExperienceService } from 'src/service/experience.service';
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
-  styleUrls: ['./experience.component.css']
+  styleUrls: ['./experience.component.css','./../../assets/css/spinner.css']
 })
 export class ExperienceComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class ExperienceComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
 
   constructor(private experienceService : ExperienceService) { }
 
@@ -25,6 +26,7 @@ export class ExperienceComponent implements OnInit {
     this.experienceService.getAllExperiences(currentPage,pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.experiences=data.list;
+      this.isLoading = false;
     });
   }
 
@@ -38,6 +40,7 @@ export class ExperienceComponent implements OnInit {
 
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
+      this.isLoading = true;
       this.currentPage = pageNumber;
       this.retriveAllExperiences(this.currentPage, this.pageSize);
     }

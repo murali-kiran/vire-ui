@@ -1,3 +1,4 @@
+<div *ngIf="!isLoading">
 <div class="users">
     <div class="users-header">
         <div><h1>All Feeds</h1></div>
@@ -11,4 +12,10 @@
         <app-feed-item *ngFor='let feed of feeds; let i = index' [feedObj]=feed  (deleteFeed)="onDeleteFeed(feed,i)"></app-feed-item>
         <!-- *ngFor='let channel of  channels' -->
     </div>    
+</div>
+</div>
+<div *ngIf="isLoading" class="aligh-spinner">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-communities',
   templateUrl: './communities.component.html',
-  styleUrls: ['./communities.component.css']
+  styleUrls: ['./communities.component.css','./../../assets/css/spinner.css']
 })
 export class CommunitiesComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class CommunitiesComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
 
   constructor(private communityService:CommunityService) { }
 
@@ -26,6 +27,7 @@ export class CommunitiesComponent implements OnInit {
     this.communityService.getAllCommunities(currentPage,pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.communities=data.list;
+      this.isLoading = false;
     });
   }
 
@@ -55,6 +57,7 @@ export class CommunitiesComponent implements OnInit {
 
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
+      this.isLoading = true;
       this.currentPage = pageNumber;
       this.retriveAllCommunties(this.currentPage, this.pageSize);
     }

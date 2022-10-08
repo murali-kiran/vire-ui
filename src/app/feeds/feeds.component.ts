@@ -5,7 +5,7 @@ import { FeedService } from 'src/service/feed.service';
 @Component({
   selector: 'app-feeds',
   templateUrl: './feeds.component.html',
-  styleUrls: ['./feeds.component.css']
+  styleUrls: ['./feeds.component.css','./../../assets/css/spinner.css']
 })
 export class FeedsComponent implements OnInit {
 
@@ -14,6 +14,8 @@ export class FeedsComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
+
 
   constructor(private feedService : FeedService) { }
 
@@ -25,6 +27,7 @@ export class FeedsComponent implements OnInit {
     this.feedService.getAllFeeds().subscribe(data=>{
       //this.pageCount = data.pageCount;
       this.feeds=data;
+      this.isLoading = false;
     });
   }
 

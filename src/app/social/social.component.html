@@ -1,3 +1,4 @@
+<div *ngIf="!isLoading">
 <div class="users">
     <div class="users-header">
         <div><h1>All Socials</h1></div>
@@ -15,4 +16,10 @@
             <li *ngFor='let e of [].constructor(pageCount);let i = index' (click)="onPageSelection(i+1)" ><a>{{i+1}}</a></li>            
         </ul>
     </div>   
+</div>
+</div>
+<div *ngIf="isLoading" class="aligh-spinner">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

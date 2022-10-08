@@ -1,3 +1,4 @@
+<div  *ngIf="!isLoading">
 <div class="users">
     <div class="users-header">
         <div><h1>Users</h1></div>
@@ -45,3 +46,13 @@
     <div><button class="userButton" (click)="onDeleteUser(selectedProfile)">Delete</button></div>
     <div><button class="userButton">Admin Message</button></div>        
 </div>
+</div>
+
+
+<div *ngIf="isLoading" class="aligh-spinner">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+

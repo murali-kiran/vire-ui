@@ -8,23 +8,8 @@ import * as AppConstants from './../constants/app.constants';
 @Injectable()
 export class UserService {
 
-  private usersUrl: string;
-
   constructor(private http: HttpClient) {
-    this.usersUrl = 'http://localhost:8090/api/v1/social/all';
   }
-
-  public findAll(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl);
-  }
-
-  public save(user: User) {
-    return this.http.post<User>(this.usersUrl, user);
-  }
-
-  // public getAllUsers(): Observable<Profile[]> {
-  //   return this.http.get<Profile[]>(AppConstants.ADMIN_USERS);
-  // }
 
   public getAllUsers(currentPage: number, pageSize: number): Observable<Users> {
     return this.http.get<Users>(AppConstants.ADMIN_USERS,{

@@ -5,7 +5,7 @@ import { SocialService } from 'src/service/social.service';
 @Component({
   selector: 'app-social',
   templateUrl: './social.component.html',
-  styleUrls: ['./social.component.css']
+  styleUrls: ['./social.component.css','./../../assets/css/spinner.css']
 })
 export class SocialComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class SocialComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
 
   constructor(private socialService : SocialService) { }
 
@@ -25,6 +26,7 @@ export class SocialComponent implements OnInit {
     this.socialService.getAllSocial(currentPage,pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.socials=data.list;
+      this.isLoading = false;
     });
   }
 
@@ -39,6 +41,7 @@ export class SocialComponent implements OnInit {
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
       this.currentPage = pageNumber;
+      this.isLoading = true;
       this.retriveAllSocials(this.currentPage, this.pageSize);
     }
   }

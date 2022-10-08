@@ -1,3 +1,4 @@
+<div *ngIf="!isLoading">
 <div class="users">
     <div class="users-header">
         <div><h1>All Communities</h1></div>
@@ -35,4 +36,10 @@
     <div *ngIf="selectedCommunity.isBlocked"><button class="userButton" (click)="onBlockCommunity(selectedCommunity,false)">UnBlock</button></div>
     <div><button class="userButton" (click)="onDeleteCommunity(selectedCommunity)">Delete</button></div>
     <div><button class="userButton">Admin Message</button></div>
+</div>
+</div>
+<div *ngIf="isLoading" class="aligh-spinner">
+    <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

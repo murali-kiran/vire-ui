@@ -5,7 +5,7 @@ import { UserService } from './../../service/user-service.service';
 @Component({
   selector: 'app-firm-accounts',
   templateUrl: './firm-accounts.component.html',
-  styleUrls: ['./firm-accounts.component.css']
+  styleUrls: ['./firm-accounts.component.css','./../../assets/css/spinner.css']
 })
 export class FirmAccountsComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class FirmAccountsComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
 
   constructor(private userService: UserService) { }
 
@@ -25,6 +26,7 @@ export class FirmAccountsComponent implements OnInit {
     this.userService.getFirmUsers('profileType:firm',this.currentPage, this.pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.profiles  = data.list;
+      this.isLoading = false;
     });
   }
 
@@ -54,6 +56,7 @@ export class FirmAccountsComponent implements OnInit {
 
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
+      this.isLoading = true;
       this.currentPage = pageNumber;
       this.retriveAllusers(this.currentPage, this.pageSize);
     }

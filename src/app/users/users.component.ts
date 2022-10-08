@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css','./../../assets/css/spinner.css']
 })
 export class UsersComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class UsersComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 20;
+  isLoading : boolean = true;
 
   constructor(private userService: UserService) { 
   }
@@ -26,6 +27,7 @@ export class UsersComponent implements OnInit {
     this.userService.getAllUsers(currentPage,pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.profiles=data.list;
+      this.isLoading = false;
     });
   }
 
@@ -56,6 +58,7 @@ export class UsersComponent implements OnInit {
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
       this.currentPage = pageNumber;
+      this.isLoading = true;
       this.retriveAllusers(this.currentPage, this.pageSize);
     }
   }

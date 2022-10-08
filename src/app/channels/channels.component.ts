@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-channels',
   templateUrl: './channels.component.html',
-  styleUrls: ['./channels.component.css']
+  styleUrls: ['./channels.component.css','./../../assets/css/spinner.css']
 })
 export class ChannelsComponent implements OnInit {
 
@@ -14,6 +14,7 @@ export class ChannelsComponent implements OnInit {
   pageCount : number;
   currentPage: number = 1;
   pageSize : number = 10;
+  isLoading : boolean = true;
 
   constructor(private channelService:ChannelService) { }
 
@@ -25,6 +26,7 @@ export class ChannelsComponent implements OnInit {
     this.channelService.getAllChannels(currentPage,pageSize).subscribe(data=>{
       this.pageCount = data.pageCount;
       this.channels=data.list;
+      this.isLoading = false;
     });
   }
 
@@ -46,6 +48,7 @@ export class ChannelsComponent implements OnInit {
   onPageSelection = (pageNumber: number)=>{
     if(this.currentPage!=pageNumber){
       this.currentPage = pageNumber;
+      this.isLoading = true;
       this.retriveAllCommunties(this.currentPage, this.pageSize);
     }
   }

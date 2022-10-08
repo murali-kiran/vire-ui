@@ -8,7 +8,7 @@ export class CommonService {
   constructor() { }
 
   public getDateFFMMMYYYY(timeInMilli: string): string {
-    
+
     try{
       const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
       var d = new Date(timeInMilli);
@@ -20,4 +20,5 @@ export class CommonService {
     }
 
   }
+  
 }

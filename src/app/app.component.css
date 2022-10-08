@@ -17,6 +17,7 @@
   .sidemenu {
     display: grid;
     grid-template-columns:1fr 5fr;
+    height: 100vh;
   }
   
   .sidemenu .menu {
@@ -39,3 +40,5 @@
     background-color: #ffffff;
     color: #5C6BC0;
   }
+
+
