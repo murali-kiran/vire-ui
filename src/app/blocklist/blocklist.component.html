@@ -1,35 +1,60 @@
-<div class="users">
-    <div class="users-header">
-        <div><h1>All Block List</h1></div>
-        <div class="form-group has-feedback">
-            <input type="text" class="form-control" id="inputValidation" placeholder="Search"/>
-            <span class="glyphicon glyphicon-search form-control-feedback"></span>
+<div  *ngIf="!isLoading">
+    <div class="users">
+        <div class="users-header">
+            <div><h1>Users</h1></div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="inputValidation" placeholder="Search"/>
+                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+            </div>
+        </div>
+        <div class="user-grid">
+            <div *ngFor='let profile of  profiles' class="user-grid-cell">
+                <div class="categoryContent">
+                    <input type="radio" name="user" type="radio" value="profile.profileId" (change)="onItemChange(profile)">
+                </div>
+                <div class="categoryTitle"><b>{{profile.name}}</b></div>
+            </div>
+        </div>
+        <div class="user-baseline">
+            <ul>
+                <li *ngFor='let e of [].constructor(pageCount);let i = index' (click)="onPageSelection(i+1)" ><a>{{i+1}}</a></li>            
+            </ul>
+        </div>
+    
+    </div>
+    <div class="userprofile" *ngIf="selectedProfile">
+        <div class="profile">
+            <div style="display: flex;justify-content: space-around;"><img width="80px" height="80px" src="assets/img/user.png" alt=""></div>
+            <div class="profileCount">
+                <div><b>{{selectedProfile.name}}</b></div>
+                <!-- <div>20</div> -->
+                <div>
+                    <span>
+                        &nbsp;
+                        <!-- <img width="20px" height="20px" src="assets/img/like.png" alt=""> {{selectedProfile.thumbsUpCount}} -->
+                     </span>
+                </div>
+                <div></div>
+                <div>
+                    <span>
+                        &nbsp;
+                        <!-- <img width="20px" height="20px" src="assets/img/dislike.png" alt=""> {{selectedProfile.thumbsDownCount}} -->
+                     </span>
+                </div>
+            </div>
+        </div>
+        <div ><button class="userButton" (click)="onBlockUser(selectedProfile,false)">UnBlock</button></div>
+        <div><button class="userButton" (click)="onDeleteUser(selectedProfile)">Delete</button></div>
+        <div><button class="userButton">Admin Message</button></div>        
+    </div>
+    </div>
+    
+    
+    <div *ngIf="isLoading" class="aligh-spinner">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
     </div>
-    <div class="user-grid">
-        <div *ngFor='let key of  [1,2,3,4,5,6,7,8,9]' class="user-grid-cell">
-            <div class="categoryContent"><input type="radio" name="user"></div>
-            <div class="categoryTitle"><b>UserName</b></div>
-        </div>
-    </div>
-    <div class="user-baseline">
-        <ul>
-            <li *ngFor='let key of  [1,2,3,4,5,6,7,8,9]'><a>{{key}}</a></li>
-        </ul>
-    </div>
-
-</div>
-<div class="userprofile">
-    <div class="profile">
-        <div style="display: flex;justify-content: space-around;"><img width="80px" height="80px" src="assets/img/user.png" alt=""></div>
-        <div class="profileCount">
-            <div><b>Virat</b></div>
-            <div>20</div>
-            <div>30</div>
-            <div>40</div>
-        </div>
-    </div>
-    <div><button class="userButton">Block</button></div>
-    <div><button class="userButton">Delete</button></div>
-    <div><button class="userButton">Admin Message</button></div>        
-</div>
+    
+    
+    

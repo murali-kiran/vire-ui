@@ -19,6 +19,14 @@ export class UserService {
     );
   }
 
+  public getAllBlockedUsers(currentPage: number, pageSize: number): Observable<Users> {
+    return this.http.get<Users>(AppConstants.ADMIN_BLOCKED_USERS,{
+       params: new HttpParams()
+        .set('page',currentPage)
+        .set('size',pageSize) }
+    );
+  }
+
   public getFirmUsers(search: string,currentPage: number, pageSize: number): Observable<Users> {
     return this.http.get<Users>(AppConstants.FIRM_USERS, { params: new HttpParams()
     .set('search', search)
