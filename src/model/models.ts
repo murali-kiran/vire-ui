@@ -177,4 +177,13 @@ export interface Experience {
  updatedTime : string;
 }
 
+/** Master */
+export class Master {
+    masterId :  number;    
+    masterType : string;
+    masterValue : string;
+    createdTime : string;
+    updatedTime :  string;
+}
+
 
