@@ -35,4 +35,11 @@ export const ALL_SOCIALS: string = BASE_URL+"/admin/socials";
 export const EXPERIENCE_BASE_URL: string = BASE_URL+"/admin/experience";
 export const ALL_EXPERIENCES: string = BASE_URL+"/admin/experiences";
 
+export const ALL_MASTER_DATA: string    = BASE_URL+"/admin/master/all"
+export const DELETE_MASTER_DATA: string = BASE_URL+"/admin/master/delete/";
+//export const DELETE_MASTER_DATA: string = BASE_URL+"/api/master/";
+
+export const UPDATE_MASTER_DATA: string = BASE_URL+"/admin/master/update";
+export const CREATE_MASTER_DATA: string = BASE_URL+"/admin/master/create";
+
 

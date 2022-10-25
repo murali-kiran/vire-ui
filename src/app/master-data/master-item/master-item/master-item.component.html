@@ -1,21 +1,33 @@
 <div class=masterItem>
     <div class="heading">
-        <span>Heading</span>
+        <span>{{masterType}}</span>
     </div>
-    <div class="masterRow">
-        <span>Add</span>
-        <input type="text" width="178px" height="26px">
+    <div style="border: 1px solid blue;padding: 5px;">
+        <div class="masterRow">
+            <span>Master Value</span>
+            <input type="text" style="width:230px;height:26px"   [(ngModel)]="updateMasterValue" >
+        </div>
+        <div class="masterRow">
+            <span>List</span>
+            <select name="" id=""  style="width:230px;height:26px"  (change)="onChangeMasterValue($event)">
+                <option value="" >Select</option>
+                <option *ngFor='let master of masterValues' value={{master.masterId}} >{{master.masterValue}}</option>
+            </select>
+        </div>
+        <div class="masterRow">
+            <button (click)="updateMaster()">Edit</button>
+            <button (click)="deleteMaster()">Delete</button>
+        </div>
     </div>
-    <div class="masterRow">
-        <span>List</span>
-        <select name="" id=""  style="width:178px;height:26px">
-            <option value="">dsfas</option>
-            <option value="">aksjd</option>
-            <option value="">wewer</option>
-        </select>
+  
+    <div style="border: 1px solid blue;padding: 5px;">
+        <div class="masterRow">
+            <span>New Master Value</span>
+            <input type="text" width="270px" height="26px" [(ngModel)]="newMasterValue">
+            <button (click)="createMaster()">Add</button>
+        </div>
     </div>
-    <div class="masterRow">
-        <button>Edit</button>
-        <button>Delete</button>
-    </div>
+
+
+
 </div>

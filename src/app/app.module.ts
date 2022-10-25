@@ -72,7 +72,7 @@ import { ExperienceItemComponent } from './experience/experience-item/experience
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [UserService,CommunityService],
   bootstrap: [AppComponent]
