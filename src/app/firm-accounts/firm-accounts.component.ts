@@ -38,8 +38,13 @@ export class FirmAccountsComponent implements OnInit {
   onBlockUser = (profile : Profile, isBlocked: boolean)=>{
     this.userService.blockUser(profile.profileId,isBlocked).subscribe(data=>{
 
+      var block = (this.selectedProfile && this.selectedProfile.isBlocked)?"unblocked":"blocked";
+      alert("Firm accountv"+block+" sucessfully");
+
       if(data && this.selectedProfile)
         this.selectedProfile.isBlocked = !this.selectedProfile.isBlocked;
+
+      
       
     });
   }
@@ -50,6 +55,7 @@ export class FirmAccountsComponent implements OnInit {
       this.currentPage = 1;
       this.retriveAllusers(this.currentPage,this.pageSize);
       this.selectedProfile = undefined;
+      alert("Firm account deleted sucessfully");
     });
 
   }

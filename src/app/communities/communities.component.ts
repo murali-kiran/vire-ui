@@ -39,6 +39,9 @@ export class CommunitiesComponent implements OnInit {
   onBlockCommunity = (community : Community, isBlocked : boolean)=>{
     this.communityService.blockCommunity(community.communityId,isBlocked).subscribe(data=>{
 
+      var block = (this.selectedCommunity && this.selectedCommunity.isBlocked)?"unblocked":"blocked";
+      alert("Community "+block+" sucessfully");
+
       if(data && this.selectedCommunity)
         this.selectedCommunity.isBlocked = !this.selectedCommunity.isBlocked;  
 
@@ -51,6 +54,7 @@ export class CommunitiesComponent implements OnInit {
       this.currentPage = 1;
       this.retriveAllCommunties(this.currentPage,this.pageSize);
       this.selectedCommunity = undefined;
+      alert("Community deleted successfully");
     });
 
   }

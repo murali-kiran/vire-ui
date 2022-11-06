@@ -39,9 +39,12 @@ export class UsersComponent implements OnInit {
   onBlockUser = (profile : Profile, isBlocked: boolean)=>{
     this.userService.blockUser(profile.profileId,isBlocked).subscribe(data=>{
 
+      var block = (this.selectedProfile && this.selectedProfile.isBlocked)?"unblocked":"blocked";
+      alert("User account "+block+" sucessfully");
+
       if(data && this.selectedProfile)
         this.selectedProfile.isBlocked = !this.selectedProfile.isBlocked;
-      
+  
     });
   }
 
@@ -51,6 +54,7 @@ export class UsersComponent implements OnInit {
       this.currentPage = 1;
       this.retriveAllusers(this.currentPage, this.pageSize);
       this.selectedProfile = undefined;
+      alert("User account deleted sucessfully");
     });
 
   }

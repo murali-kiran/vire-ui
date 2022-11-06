@@ -39,6 +39,8 @@ export class FeedsComponent implements OnInit {
       if (idx !== -1) {
         this.feeds.splice(idx, 1);
       } 
+
+      alert("Feed deleted successfully");
        
     });
   }
