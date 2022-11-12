@@ -34,6 +34,7 @@ export class ExperienceComponent implements OnInit {
     this.experienceService.deleteExperience(experience.experienceId).subscribe(data=>{
       this.currentPage = 1;
       this.retriveAllExperiences(this.currentPage, this.pageSize);
+      alert("Experience deleted sucessfully");
       this.selectedExperience = undefined;
     });
   }

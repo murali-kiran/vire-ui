@@ -34,6 +34,7 @@ export class SocialComponent implements OnInit {
     this.socialService.deleteSocial(social.socialId).subscribe(data=>{
       this.currentPage = 1;
       this.retriveAllSocials(this.currentPage, this.pageSize);
+      alert("Social post deleted sucessfully");
       this.selectedSocial = undefined;
     });
   }
