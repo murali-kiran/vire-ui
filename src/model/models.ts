@@ -45,7 +45,7 @@ export interface Community {
     acceptedUserCount?: number,
     createdTime?: string
     updatedTime?: string
-    isBlocked: boolean;
+    isBlocked?: boolean;
 }
 
 export interface Communities {
@@ -184,6 +184,14 @@ export class Master {
     masterValue : string;
     createdTime : string;
     updatedTime :  string;
+}
+
+export class AppRestriction {
+    appRestrictionId?: string;   
+    interestsSelectionLimit?: number;
+    creatingCommunitiesLimit?: number;
+    createdTime?: string;
+    updatedTime?: string;
 }
 
 

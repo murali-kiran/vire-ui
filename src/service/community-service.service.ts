@@ -23,4 +23,8 @@ export class CommunityService {
     return this.http.delete<Community>(AppConstants.DELETE_COMMUNITY+"/"+communityId);
   }
 
+  public createCommunity(community: Community): Observable<Community> {
+    return this.http.post<Community>(AppConstants.DELETE_COMMUNITY,community);
+  }
+
 }
