@@ -14,6 +14,7 @@ export const FIRM_USERS: string = BASE_URL+"/admin/profile/searchPageWise";
 export const ALL_COMMUNITIES: string = BASE_URL+"/admin/community/allPageWise";
 export const BLOCK_COMMUNITY: string = BASE_URL+"/admin/community/blockCommunity";
 export const DELETE_COMMUNITY: string = BASE_URL+"/admin/community";
+export const CREATE_COMMUNITY: string = BASE_URL+"/admin/community";
 
 
 
@@ -41,5 +42,10 @@ export const DELETE_MASTER_DATA: string = BASE_URL+"/admin/master/delete/";
 
 export const UPDATE_MASTER_DATA: string = BASE_URL+"/admin/master/update";
 export const CREATE_MASTER_DATA: string = BASE_URL+"/admin/master/create";
+
+export const ADMIN_PORTAL_LOGIN: string = BASE_URL+"/admin/adminPortalLogin";
+
+export const ADMIN_UPDATE_APP_RESTRICTION: string = BASE_URL+"/admin/appRestriction/update";
+export const ADMIN_GET_APP_RESTRICTION: string = BASE_URL+"/admin/appRestriction/get";
 
 

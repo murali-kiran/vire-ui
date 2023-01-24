@@ -2,34 +2,42 @@
 
     <div class="communityButton">
         <div>
-            <button>Create new community</button>
+            <button (click)="showCreateCommunity('createCommunity')" [ngClass]="{ 'selected': this.selectedItem == 'createCommunity'}">Create new community</button>
         </div>
         <div>
-            <button>All Admin communities</button>
+            <button (click)="showAllAdminCommunity('showAdminCommunity')"  [ngClass]="{ 'selected': this.selectedItem == 'showAdminCommunity'}">All Admin communities</button>
         </div>
     </div>
 
-    <div class="createCommunity">
-        <div class="photoBrowser">
+    <div class="createCommunity" *ngIf="this.selectedItem == 'createCommunity'">
+        <!--<div class="photoBrowser">
             <button>Add Image</button>
             <button>Add Cover Image</button>
-        </div>
-        <div class="photoBrowser">
-            <span>Community Name</span>
-            <input type="text">
-            <button>Add Members</button>
-        </div>
-        <div>
-            <div>About Community</div>
-            <textarea name="" id="" cols="70" rows="5"></textarea>
-        </div>
-        <div>
-            <div>Rules and regulations</div>
-            <textarea name="" id="" cols="70" rows="5"></textarea>
-        </div>
+        </div>-->
+        <form (ngSubmit)="onSubmitCommunityCreation()" #f="ngForm">
+            <div id="community-data" ngModelGroup="communityData" #communityData="ngModelGroup">
+                <div class="photoBrowser">
+                    <span>Community Name</span>
+                    <input type="text" id="communityName"  ngModel name="communityName" required #community="ngModel">
+                    <span class="help-block" *ngIf="!community.valid && community.touched">Please enter Community name</span>
+                    <!-- <button>Add Members</button> -->
+                </div>
+                <div>
+                    <div>About Community</div>
+                    <textarea name="aboutCommunity" id="aboutCommunity" name="aboutCommunity"  ngModel cols="70" rows="5"></textarea>
+                </div>
+                <div>
+                    <div>Rules and regulations</div>
+                    <textarea name="rulesAndRegulations" id="rulesAndRegulations" name="rulesAndRegulations"  ngModel cols="70" rows="5"></textarea>
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Create</button>
+                </div>
+            </div>
+        </form>
     </div>
 
-    <div>
+    <div *ngIf="this.selectedItem == 'showAdminCommunity'">
         <app-communities></app-communities> 
     </div>
 

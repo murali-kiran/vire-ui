@@ -26,5 +26,15 @@
     gap: 20px;
 }
 
+.selected {
+    background-color: aqua;
+}
+
+input.ng-invalid.ng-touched {
+    border : 1px solid red;
+}
+
+
+
 
 

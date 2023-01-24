@@ -51,9 +51,16 @@
 <div >
   <div class="header">
     VIRE
+    <span *ngIf="authService.isAuth" style="float: right;">
+      <a style="cursor:pointer;color: whitesmoke;" (click)="onLogout()"> Logout</a>     
+    </span>
   </div>
-  <div class="sidemenu">
-    <div class="menu">
+  <!--<div *ngIf="!authService.isAuth">
+    <router-outlet></router-outlet>
+  </div> -->
+  <!-- class="sidemenu" *ngIf="authService.isAuth" -->
+  <div [ngClass]="{'sidemenu': authService.isAuth }"  >
+    <div class="menu" *ngIf="authService.isAuth">
       <ul >
         <li><a  (click)="triggerMenuItem('home')"> Home </a></li>
         <li><a  (click)="triggerMenuItem('users')"> Users</a></li>

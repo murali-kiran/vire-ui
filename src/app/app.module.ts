@@ -34,6 +34,9 @@ import { ReportItemComponent } from './reports/report-item/report-item.component
 import { FeedItemComponent } from './feeds/feed-item/feed-item.component';
 import { SocialItemComponent } from './social/social-item/social-item.component';
 import { ExperienceItemComponent } from './experience/experience-item/experience-item.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { LeftmenuComponent } from './left-menu/leftmenu/leftmenu.component';
 
 
 @NgModule({
@@ -60,7 +63,10 @@ import { ExperienceItemComponent } from './experience/experience-item/experience
     ReportItemComponent,
     FeedItemComponent,
     SocialItemComponent,
-    ExperienceItemComponent
+    ExperienceItemComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
+    LeftmenuComponent
   ],
   imports: [
     BrowserModule,
