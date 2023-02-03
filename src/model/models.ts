@@ -194,4 +194,18 @@ export class AppRestriction {
     updatedTime?: string;
 }
 
+export class AdminMessage {
+    adminMessageId?: string;    
+    messageType?: string;
+    message?: string;
+    createdTime?: string;
+    updatedTime?: string;
+}
+
+export interface AdminMessages {
+    pageCount: number;
+    list : AdminMessage [];
+}
+
+
 

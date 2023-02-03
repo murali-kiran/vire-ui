@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
 
-  constructor() { }
+  constructor() {    
+  }
 
-  public getDateFFMMMYYYY(timeInMilli: string): string {
+  public getDateFFMMMYYYY(timeInMilli?: string): string {
+
+    if(!timeInMilli) return "";
 
     try{
       const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];

@@ -48,4 +48,9 @@ export const ADMIN_PORTAL_LOGIN: string = BASE_URL+"/admin/adminPortalLogin";
 export const ADMIN_UPDATE_APP_RESTRICTION: string = BASE_URL+"/admin/appRestriction/update";
 export const ADMIN_GET_APP_RESTRICTION: string = BASE_URL+"/admin/appRestriction/get";
 
+export const INSERT_ADMIN_MESSAGE: string = BASE_URL+"/admin/adminMessage/create";
+export const UPDATE_ADMIN_MESSAGE: string = BASE_URL+"/admin/adminMessage/update";
+export const DELETE_ADMIN_MESSAGE: string = BASE_URL+"/admin/adminMessage/delete";
+export const ALL_ADMIN_MESSAGES: string   = BASE_URL+"/admin/adminMessage/allPageWise";
+
 
