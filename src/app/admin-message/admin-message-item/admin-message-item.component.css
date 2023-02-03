@@ -12,3 +12,19 @@
     flex-direction: column;
     flex-wrap: wrap;
 }
+
+.postItem {
+    background-color: #FFFFFF;
+    display: grid;
+    grid-template-rows: 1fr;
+    width: auto;
+    gap: 5px;
+    padding: 5px 5px;
+}
+
+.postItem .postProfile {
+    display: grid;
+    grid-template-columns: 1fr 5fr 5fr;
+    gap: 5px;
+    padding: 5px 5px;
+}

@@ -1,5 +1,6 @@
+import { AdminmessageService } from './../../../service/adminmessage.service';
 import { ExperienceService } from 'src/service/experience.service';
-import { Experience } from './../../../model/models';
+import { Experience, AdminMessage } from './../../../model/models';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -11,14 +12,41 @@ export class ExperienceItemComponent implements OnInit {
 
   @Input('experienceObj') public experience : Experience;
   @Output("deleteExperience") deleteExperienceFun: EventEmitter<any> = new EventEmitter();
+  isAdminMsgBtn : boolean = true;
+  adminMsg: string = '';
 
-  constructor(public experienceService:ExperienceService) { }
+  constructor(public experienceService:ExperienceService,private adminmessageService:AdminmessageService
+    ) { }
 
   ngOnInit(): void {
   }
 
   onDeleteExperience(): void {
     this.deleteExperienceFun.emit();
+  }
+
+  toggleAdminMsg = ()=>{
+    this.adminMsg = '';
+    this.isAdminMsgBtn = !this.isAdminMsgBtn;
+  }
+
+  sendAdminMessage = ()=>{
+    var adminMsg:AdminMessage = {
+      messageType: "Experiences",
+      message : this.adminMsg
+    }
+    this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
+      next:(data)=>{
+        this.adminMsg='';
+        this.isAdminMsgBtn = true;
+        alert("Admin message sent successfully");
+      },
+      error:(error)=>{
+        this.adminMsg='';
+        alert("Admin message failed to sent");
+      }
+    });
+    
   }
 
   

@@ -1,5 +1,6 @@
+import { AdminmessageService } from './../../service/adminmessage.service';
 import { ChannelService } from './../../service/channel.service';
-import { Channel } from './../../model/models';
+import { Channel, AdminMessage } from './../../model/models';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -15,8 +16,10 @@ export class ChannelsComponent implements OnInit {
   currentPage: number = 1;
   pageSize : number = 10;
   isLoading : boolean = true;
+  isAdminMsgBtn : boolean = true;
+  adminMsg: string = '';
 
-  constructor(private channelService:ChannelService) { }
+  constructor(private channelService:ChannelService,private adminmessageService:AdminmessageService) { }
 
   ngOnInit(): void {
     this.retriveAllCommunties(this.currentPage,this.pageSize);
@@ -51,6 +54,31 @@ export class ChannelsComponent implements OnInit {
       this.isLoading = true;
       this.retriveAllCommunties(this.currentPage, this.pageSize);
     }
+  }
+
+  
+  toggleAdminMsg = ()=>{
+    this.adminMsg = '';
+    this.isAdminMsgBtn = !this.isAdminMsgBtn;
+  }
+
+  sendAdminMessage = ()=>{
+    var adminMsg:AdminMessage = {
+      messageType: "channels",
+      message : this.adminMsg
+    }
+    this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
+      next:(data)=>{
+        this.adminMsg='';
+        this.isAdminMsgBtn = true;
+        alert("Admin message sent successfully");
+      },
+      error:(error)=>{
+        this.adminMsg='';
+        alert("Admin message failed to sent");
+      }
+    });
+    
   }
 
 

@@ -61,7 +61,7 @@ import { LeftmenuComponent } from './left-menu/leftmenu/leftmenu.component';
     MasterItemComponent,
     AdminMessageItemComponent,
     ReportItemComponent,
-    FeedItemComponent,
+    FeedItemComponent, 
     SocialItemComponent,
     ExperienceItemComponent,
     AuthComponent,

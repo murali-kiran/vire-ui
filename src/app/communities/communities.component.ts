@@ -1,6 +1,7 @@
 import { CommunityService } from './../../service/community-service.service';
-import { Community } from './../../model/models';
+import { Community, AdminMessage } from './../../model/models';
 import { Component, OnInit } from '@angular/core';
+import { AdminmessageService } from 'src/service/adminmessage.service';
 
 @Component({
   selector: 'app-communities',
@@ -15,8 +16,10 @@ export class CommunitiesComponent implements OnInit {
   currentPage: number = 1;
   pageSize : number = 10;
   isLoading : boolean = true;
+  isAdminMsgBtn : boolean = true;
+  adminMsg: string = '';
 
-  constructor(private communityService:CommunityService) { }
+  constructor(private communityService:CommunityService,private adminmessageService:AdminmessageService) { }
 
 
   ngOnInit(): void {
@@ -65,6 +68,30 @@ export class CommunitiesComponent implements OnInit {
       this.currentPage = pageNumber;
       this.retriveAllCommunties(this.currentPage, this.pageSize);
     }
+  }
+
+  toggleAdminMsg = ()=>{
+    this.adminMsg = '';
+    this.isAdminMsgBtn = !this.isAdminMsgBtn;
+  }
+
+  sendAdminMessage = ()=>{
+    var adminMsg:AdminMessage = {
+      messageType: "communities",
+      message : this.adminMsg
+    }
+    this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
+      next:(data)=>{
+        this.adminMsg='';
+        this.isAdminMsgBtn = true;
+        alert("Admin message sent successfully");
+      },
+      error:(error)=>{
+        this.adminMsg='';
+        alert("Admin message failed to sent");
+      }
+    });
+    
   }
 
 }

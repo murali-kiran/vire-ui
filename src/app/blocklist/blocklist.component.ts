@@ -1,6 +1,7 @@
+import { AdminmessageService } from './../../service/adminmessage.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../service/user-service.service';
-import { Profile } from './../../model/models';
+import { Profile, AdminMessage } from './../../model/models';
 
 @Component({
   selector: 'app-blocklist',
@@ -15,8 +16,10 @@ export class BlocklistComponent implements OnInit {
   currentPage: number = 1;
   pageSize : number = 10;
   isLoading : boolean = true;
+  isAdminMsgBtn : boolean = true;
+  adminMsg: string = '';
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private adminmessageService:AdminmessageService) { }
 
   ngOnInit(): void {
     this.retriveAllusers(this.currentPage,this.pageSize);
@@ -60,6 +63,30 @@ export class BlocklistComponent implements OnInit {
       this.isLoading = true;
       this.retriveAllusers(this.currentPage, this.pageSize);
     }
+  }
+
+  toggleAdminMsg = ()=>{
+    this.adminMsg = '';
+    this.isAdminMsgBtn = !this.isAdminMsgBtn;
+  }
+
+  sendAdminMessage = ()=>{
+    var adminMsg:AdminMessage = {
+      messageType: "block list",
+      message : this.adminMsg
+    }
+    this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
+      next:(data)=>{
+        this.adminMsg='';
+        this.isAdminMsgBtn = true;
+        alert("Admin message sent successfully");
+      },
+      error:(error)=>{
+        this.adminMsg='';
+        alert("Admin message failed to sent");
+      }
+    });
+    
   }
 
 }

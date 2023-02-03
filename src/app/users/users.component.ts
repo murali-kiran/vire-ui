@@ -1,4 +1,5 @@
-import { Profile,Users } from './../../model/models';
+import { AdminmessageService } from './../../service/adminmessage.service';
+import { Profile, Users, AdminMessage } from './../../model/models';
 import { UserService } from './../../service/user-service.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -15,8 +16,10 @@ export class UsersComponent implements OnInit {
   currentPage: number = 1;
   pageSize : number = 20;
   isLoading : boolean = true;
+  isAdminMsgBtn : boolean = true;
+  adminMsg: string = '';
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService,private adminmessageService:AdminmessageService) { 
   }
 
   ngOnInit(): void {
@@ -66,5 +69,31 @@ export class UsersComponent implements OnInit {
       this.retriveAllusers(this.currentPage, this.pageSize);
     }
   }
+
+  toggleAdminMsg = ()=>{
+    this.adminMsg = '';
+    this.isAdminMsgBtn = !this.isAdminMsgBtn;
+  }
+
+  sendAdminMessage = ()=>{
+    var adminMsg:AdminMessage = {
+      messageType: "users",
+      message : this.adminMsg
+    }
+    this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
+      next:(data)=>{
+        this.adminMsg='';
+        this.isAdminMsgBtn = true;
+        alert("Admin message sent successfully");
+      },
+      error:(error)=>{
+        this.adminMsg='';
+        alert("Admin message failed to sent");
+      }
+    });
+    
+  }
+
+
 
 }

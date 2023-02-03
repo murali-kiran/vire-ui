@@ -10,7 +10,19 @@
         <div>
             <button (click)="onDeleteSocial()" >Delete Post</button>
             &nbsp;
-            <button>Admin Message</button>
+            <button *ngIf="isAdminMsgBtn" (click)="toggleAdminMsg()">Admin Message</button>
+            <div class="masterItem" *ngIf="!isAdminMsgBtn">
+                <div class="heading">
+                    <span>Send Message</span>
+                </div>
+                <div class="masterRow">
+                    <textarea name="" id="" cols="30" rows="6" [(ngModel)]=adminMsg></textarea>
+                </div>
+                <div class="masterRow">
+                    <button (click)="sendAdminMessage()">Submit</button> &nbsp;&nbsp;
+                    <button (click)="toggleAdminMsg()">Cancel</button>           
+                </div>
+            </div>
         </div>
     </div>
     <div class="postDescription">

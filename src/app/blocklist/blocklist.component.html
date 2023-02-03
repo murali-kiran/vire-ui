@@ -45,7 +45,19 @@
         </div>
         <div ><button class="userButton" (click)="onBlockUser(selectedProfile,false)">UnBlock</button></div>
         <div><button class="userButton" (click)="onDeleteUser(selectedProfile)">Delete</button></div>
-        <div><button class="userButton">Admin Message</button></div>        
+        <div><button class="userButton" *ngIf="isAdminMsgBtn" (click)="toggleAdminMsg()">Admin Message</button></div>      
+        <div class="masterItem" *ngIf="!isAdminMsgBtn">
+            <div class="heading">
+                <span>Send Message</span>
+            </div>
+            <div class="masterRow">
+                <textarea name="" id="" cols="30" rows="6" [(ngModel)]=adminMsg></textarea>
+            </div>
+            <div class="masterRow">
+                <button (click)="sendAdminMessage()">Submit</button> &nbsp;&nbsp;
+                <button (click)="toggleAdminMsg()">Cancel</button>           
+            </div>
+        </div>  
     </div>
     </div>
     

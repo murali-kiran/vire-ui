@@ -32,7 +32,19 @@
     </div>
     <div><button class="userButton">Block</button></div>
     <div><button class="userButton" (click)="onDeleteChannel(selectedChannel)">Delete</button></div>
-    <div><button class="userButton">Admin Message</button></div>        
+    <div><button class="userButton" (click)="toggleAdminMsg()" *ngIf="isAdminMsgBtn">Admin Message</button></div> 
+    <div class="masterItem" *ngIf="!isAdminMsgBtn">
+        <div class="heading">
+            <span>Send Message</span>
+        </div>
+        <div class="masterRow">
+            <textarea name="" id="" cols="30" rows="6" [(ngModel)]=adminMsg></textarea>
+        </div>
+        <div class="masterRow">
+            <button (click)="sendAdminMessage()">Submit</button> &nbsp;&nbsp;
+            <button (click)="toggleAdminMsg()">Cancel</button>           
+        </div>
+    </div>       
 </div>
 </div>
 <div *ngIf="isLoading" class="aligh-spinner">
