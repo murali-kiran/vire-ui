@@ -54,7 +54,7 @@
                 <textarea name="" id="" cols="30" rows="6" [(ngModel)]=adminMsg></textarea>
             </div>
             <div class="masterRow">
-                <button (click)="sendAdminMessage()">Submit</button> &nbsp;&nbsp;
+                <button (click)="sendAdminMessage(selectedProfile.profileId)">Submit</button> &nbsp;&nbsp;
                 <button (click)="toggleAdminMsg()">Cancel</button>           
             </div>
         </div>  

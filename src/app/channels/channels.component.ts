@@ -62,10 +62,11 @@ export class ChannelsComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (channelId: string)=>{
     var adminMsg:AdminMessage = {
       messageType: "channels",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: channelId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

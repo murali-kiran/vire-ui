@@ -76,10 +76,11 @@ export class FirmAccountsComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (profileId: string)=>{
     var adminMsg:AdminMessage = {
       messageType: "firm profile",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: profileId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

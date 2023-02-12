@@ -75,10 +75,11 @@ export class CommunitiesComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (communityId: string)=>{
     var adminMsg:AdminMessage = {
       messageType: "communities",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: communityId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

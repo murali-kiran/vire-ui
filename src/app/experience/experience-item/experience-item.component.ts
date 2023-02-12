@@ -30,10 +30,11 @@ export class ExperienceItemComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (experienceId:string)=>{
     var adminMsg:AdminMessage = {
       messageType: "Experiences",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: experienceId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

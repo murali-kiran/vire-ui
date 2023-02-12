@@ -32,8 +32,9 @@ export class AdminMessageItemComponent implements OnInit {
     this.resendAdminMessageFun.emit(this.adminMessage);
   }
 
-  onEditAdminMessage(): void {
+  onEditAdminMessage(adminMessageId?: string): void {
     this.adminMessage.message = this.adminMsg;
+    this.adminMessage.sendTo = adminMessageId;
     this.editAdminMessageFun.emit(this.adminMessage);
     this.isEditMsgBtn = true;
   }

@@ -31,10 +31,11 @@ export class FeedItemComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (feedId :string )=>{
     var adminMsg:AdminMessage = {
       messageType: "feeds",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: feedId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

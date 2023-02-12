@@ -70,10 +70,11 @@ export class BlocklistComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (blockId:string)=>{
     var adminMsg:AdminMessage = {
       messageType: "block list",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: blockId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

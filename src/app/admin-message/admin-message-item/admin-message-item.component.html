@@ -21,7 +21,7 @@
                     <textarea name="" id="" cols="30" rows="6" [(ngModel)]=adminMsg></textarea>
                 </div>
                 <div class="masterRow">
-                    <button (click)="onEditAdminMessage()">Submit</button> &nbsp;&nbsp;
+                    <button (click)="onEditAdminMessage(adminMessage.adminMessageId)">Submit</button> &nbsp;&nbsp;
                     <button (click)="toggleEditMessage()">Cancel</button>           
                 </div>
             </div>

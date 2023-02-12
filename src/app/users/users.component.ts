@@ -75,10 +75,11 @@ export class UsersComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (profileId: string)=>{
     var adminMsg:AdminMessage = {
       messageType: "users",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: profileId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{

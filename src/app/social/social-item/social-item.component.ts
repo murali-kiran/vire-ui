@@ -29,10 +29,11 @@ export class SocialItemComponent implements OnInit {
     this.isAdminMsgBtn = !this.isAdminMsgBtn;
   }
 
-  sendAdminMessage = ()=>{
+  sendAdminMessage = (socialId :string)=>{
     var adminMsg:AdminMessage = {
       messageType: "social",
-      message : this.adminMsg
+      message : this.adminMsg,
+      sendTo: socialId
     }
     this.adminmessageService.sendAdminMessage(adminMsg).subscribe({
       next:(data)=>{
