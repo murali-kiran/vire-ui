@@ -195,7 +195,8 @@ export class AppRestriction {
 }
 
 export class AdminMessage {
-    adminMessageId?: string;    
+    adminMessageId?: string; 
+    sendTo?: string;   
     messageType?: string;
     message?: string;
     createdTime?: string;
